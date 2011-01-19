@@ -90,6 +90,14 @@
                 $input.focus();
             };
 
+            this.getValue = function() {
+                return $input.val();
+            };
+
+            this.setValue = function(val) {
+                $input.val(val);
+            };
+
             this.loadValue = function(item) {
                 defaultValue = item[args.column.field] || "";
                 $input.val(defaultValue);
@@ -285,12 +293,12 @@
             };
 
             this.loadValue = function(item) {
-                $input.val((defaultValue = item[args.column.field]) ? "yes" : "no");
-                $input.select();
+                $select.val((defaultValue = item[args.column.field]) ? "yes" : "no");
+                $select.select();
             };
 
             this.serializeValue = function() {
-                return ($input.val() == "yes");
+                return ($select.val() == "yes");
             };
 
             this.applyValue = function(item,state) {
